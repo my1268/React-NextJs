@@ -1,0 +1,13 @@
+const [movies, setMovies] = useState([]);
+  useEffect(() => {
+    (async () => {
+      const { results } = await (
+        await fetch(
+          `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`
+        )
+      ).json();
+      setMovies(results);
+    })();
+  }, []);
+
+api_key 알아야됨
